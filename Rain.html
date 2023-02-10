@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matrix Rain</title>
+    <style>
+      /* CSS for the matrix rain animation */
+      body {
+        background-color: black;
+        margin: 0px;
+        /*overflow: hidden;*/
+      }
+      .div1 {
+        position:absolute;
+        background-color: rgb(11, 54, 28);
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 32px;
+        border-radius: 56px;
+        color:rgb(255, 255, 255);
+        height: 324px;
+        width: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .button1 {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 32px;
+        color:rgb(255, 255, 255);
+        background-color: #0d2617;
+        height: 120px;
+        width: 436px;
+        border-radius: 32px;
+        border: none;
+        position: relative;
+
+        transition-duration: 0.4s;
+        margin-top: 16px;
+      }
+      .div2
+      {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 32px;
+        color:rgb(255, 255, 255);
+        background-color: #0d2617;
+        height: 120px;
+        width: 436px;
+        border-radius: 32px;
+        border: none;
+        margin: auto;
+        margin-top: 32px;
+      }
+
+      .button1:hover {
+        background-color: #369839;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+      // JS for the matrix rain animation
+      var c = document.createElement("canvas");
+      var ctx = c.getContext("2d");
+      c.height = window.innerHeight -1;
+      c.width = window.innerWidth -1;
+
+      c.style.position = "relative";
+      c.style.top = "0px";
+      c.style.left = "0px";
+
+      c.style.display = "block";
+
+      document.body.appendChild(c);
+      var chinese = "田由甲申甴电甶男甸甹町画甼甽甾甿畀畁畂畃畄畅畆畇畈畉畊畋界畍畎畏畐畑";
+      chinese = chinese.split("");
+      var font_size = 14;
+      var columns = c.width/font_size;
+      var drops = [];
+      for(var x = 0; x < columns; x++)
+        drops[x] = 1;
+      function draw()
+      {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, c.width, c.height);
+        ctx.fillStyle = "#64c465";
+        ctx.font = font_size + "px arial";
+        for(var i = 0; i < drops.length; i++)
+        {
+          var text = chinese[Math.floor(Math.random()*chinese.length)];
+          ctx.fillText(text, i*font_size, drops[i]*font_size);
+          if(drops[i]*font_size > c.height && Math.random() > 0.975)
+            drops[i] = 0;
+          drops[i]++;
+        }
+      }
+      setInterval(draw, 35);
+    </script>
+
+    <div class="div1">
+
+    <div class = "div2">Rule #1:<br> You must join my discord.</div>
+
+    <button class = "button1" type="button", onclick = "window.location.href='https://discord.gg/6qBSQFR5tD';">Click here to join!</link>
+    
+    </div>
+    
+  </body>
+</html>
